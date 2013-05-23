@@ -10,6 +10,7 @@ module Jekyll
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'session.html')
       self.data['tasks'] = get_tasks
+      self.data['title'] = dir
     end
 
     def get_tasks
@@ -62,6 +63,7 @@ module Jekyll
 
   # This doesn't seem to work. I have problems rendering the TaskPages at the right time.
   # Maybe I should merge the TaskPages into the SessionPage's payload
+  # Actually I didn't have to do this. The above worked.
 
   class TaskPage < Page
     def initialize(site, base, dir, name)

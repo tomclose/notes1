@@ -1,8 +1,5 @@
 ---
-layout: task
-title:  "Welcome to Jekyll!"
-date:   2013-05-23 14:16:14
-categories: jekyll update
+title:  "Intro to the command line"
 ---
 
 
