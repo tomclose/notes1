@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<h2>{{ page.title }}</h2>
+
+
+{% for task in page.tasks %}
+<div class="task">
+	{{ task.output }}
+</div>
+{% endfor %}
+
