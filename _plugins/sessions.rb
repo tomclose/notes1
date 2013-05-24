@@ -14,7 +14,7 @@ module Jekyll
     end
 
     def get_tasks
-      Dir.entries(File.join(@base, '_sessions', @dir)).reject{|x| %w{. ..}.include?(x)}.map do |n|
+      Dir.entries(File.join(@base, '_sessions', @dir)).reject{|x| %w{. ..}.include?(x)}.sort.map do |n|
         t = TaskPage.new(@site, @base, @dir, n)
         #t.render
         t
@@ -72,8 +72,10 @@ module Jekyll
       @dir = dir
       @name = name # won't be used
 
-      self.process(@name)
+      self.process(@name) # separates into @basename and @ext
       self.read_yaml(File.join(base,'_sessions', dir), name)
+
+      self.data['name'] = @basename
       
       # self.data['title'] = "#{category_title_prefix}#{category}" # should have title already
     end
